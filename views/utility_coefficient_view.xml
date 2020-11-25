@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <record id="utility_coefficient_view_form" model="ir.ui.view">
+      <field name="name">utility.coefficient.form</field>
+      <field name="model">utility.coefficient</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Utility Coefficient">
+          <header></header>
+          <sheet>
+            <group col="4">
+              <field name="name" placeholder="Titulo"/>
+              <field name="income_tax_rate_id" placeholder="Seleccione"/>
+              <field name="date" placeholder="Seleccione"/>
+              <field name="utility_coefficient"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+      
+    <record id="utility_coefficient_view_tree" model="ir.ui.view">
+      <field name="name">utility.coefficient.tree</field>
+      <field name="model">utility.coefficient</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Utility Coefficient">
+          <field name="name"/>
+          <field name="income_tax_rate_id" placeholder="Seleccione"/>
+          <field name="date" placeholder="Seleccione"/>
+          <field name="utility_coefficient"/>
+        </tree>
+      </field>
+    </record>
+      
+    <record id="utility_coefficient_action_view" model="ir.actions.act_window">
+      <field name="name">Coeficiente de Utilidad</field>
+      <field name="res_model">utility.coefficient</field>
+      <field name="view_type">form</field> 
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="utility_coefficient_view_tree"/>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          Crear un Coeficiente de Utilidad.
+        </p> 
+      </field>
+    </record>
+      
+      <menuitem id="menu_utility_coefficient" name="Coeficiente de Utilidad" 
+        parent="menu_configuration_income_tax_rate" sequence="10" 
+        action="utility_coefficient_action_view" 
+        groups="base.group_system,account.group_account_manager,base.group_user,account.group_account_user"/>
+  
+    </data>
+</odoo>
+

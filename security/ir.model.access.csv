@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+acs_income_tax_rate_system,access.income.tax.rate.system,model_income_tax_rate,base.group_system,1,1,1,1
+acs_income_tax_rate_manager,access.income.tax.rate.manager,model_income_tax_rate,base.group_system,1,1,1,1
+acs_utility_coefficient_system,access.income.tax.rate.system,model_utility_coefficient,base.group_system,1,1,1,1
+acs_utility_coefficient_manager,access.income.tax.rate.manager,model_utility_coefficient,base.group_system,1,1,1,1

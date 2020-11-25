@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+    <!--Wizar Calculo ISR-->
+    <record id="compute_isr_wizard" model="ir.ui.view">
+      <field name="name">Calculo de ISR</field>
+      <field name="model">compute.isr.wizard</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Calculo de ISR">
+          <group col="4">
+            <field name="start_date"/>
+            <field name="end_date"/>
+          </group>
+          <footer>
+              <!--name="get_report"-->
+            <button 
+              string="Calcular" 
+              type="object" 
+              class="oe_highlight"/>
+            <button string="Cancelar" special="cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+    
+    
+    <act_window id="compute_isr_report_wizard"
+      name="Calculo ISR"
+      res_model="compute.isr.wizard"
+      view_mode="form"
+      target="new"/>
+
+
+    <menuitem action="compute_isr_report_wizard"
+      id="menu_compute_isr_report_wizard"
+      parent="menu_configuration_report_tax"/>
+    
+    
+  </data>
+</odoo>

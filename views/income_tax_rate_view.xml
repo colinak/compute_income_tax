@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <record id="income_tax_rate_view_form" model="ir.ui.view">
+      <field name="name">income.tax.rate.form</field>
+      <field name="model">income.tax.rate</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Income Tax Rate">
+          <header></header>
+          <sheet>
+            <div class="oe_title">
+              <!--<label for="name" class="oe_edit_only" string="Título"/>-->
+              <h1>
+                <field name="name" placeholder="Nombre de la Tasa ISR" readonly="1"/>
+              </h1>
+            </div>
+            <separator/>
+            <group col="4">
+              <field name="start_date" placeholder="Seleccione"/>
+              <field name="end_date" placeholder="Seleccione"/>
+              <field name="rate_isr"/>
+              <field name="active"/>
+            </group>
+            <group>
+              <notebook>
+                <page name="utility_coefficient" string="Coeficiente de Utilidad">
+                  <field name="utility_coefficient_ids" nolable="1">
+                    <tree string="C.U" editable="bottom">
+                      <field name="income_tax_rate_id" placeholder="Seleccione"/>
+                      <!--<field name="name" placeholder="Título"/>-->
+                      <field name="date" placeholder="Seleccione"/>
+                      <field name="utility_coefficient"/>
+                    </tree>
+                  </field>
+                </page>
+              </notebook>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record id="income_tax_rate_view_search" model="ir.ui.view">
+      <field name="name">income_tax_rate_search</field>
+      <field name="model">income.tax.rate</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Income Tax Rate">
+          <filter name="active" string="Activo" domain="[('active', '=', 1)]"/>
+          <filter name="active" string="Inactivo" domain="[('active', '=', 0)]"/>
+        </search>
+      </field>
+    </record>
+      
+    <record id="income_tax_rate_view_tree" model="ir.ui.view">
+      <field name="name">income_tax_rate_tree</field>
+      <field name="model">income.tax.rate</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Income Tax Rate">
+          <field name="name"/>
+          <field name="rate_isr"/>
+          <field name="start_date"/>
+          <field name="end_date"/>
+          <field name="active"/>
+        </tree>
+      </field>
+    </record>
+      
+    <record id="income_tax_rate_action_view" model="ir.actions.act_window">
+      <field name="name">Tarifa ISR</field>
+      <field name="res_model">income.tax.rate</field>
+      <field name="view_type">form</field> 
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="income_tax_rate_view_tree"/>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          Crear Una Tarifa de ISR. 
+        </p> 
+      </field>
+    </record>
+      
+    <menuitem id="menu_incoten_tax_rate" name="Tasa Anual de ISR" 
+      parent="menu_configuration_income_tax_rate" sequence="5" 
+      action="income_tax_rate_action_view" 
+      groups="base.group_system,account.group_account_manager,account.group_account_invoice"/>
+
+  
+    </data>
+</odoo>
