@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+
+    <report
+      id="report_isr_xlsx"
+      string="Reporte Calculo ISR"
+      model="income.tax.rate"
+      report_type="xlsx"
+      name="compute_income_tax.compute_isr_report"
+      file="compute_income_tax.compute_isr_report"
+    />
+
+    <report
+      id="isr_xlsx_report"
+      string="Reporte Calculo ISR"
+      model="compute.isr.wizard"
+      report_type="xlsx"
+      name="compute_income_tax.compute_isr_report"
+      file="compute_income_tax.compute_isr_report"
+    />
+
+  </data>
+</odoo>

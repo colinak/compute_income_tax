@@ -12,7 +12,8 @@
     'installable': True,
     "depends": [
         'base',
-        'account'
+        'account',
+        'report_xlsx'
     ],
     "data": [
         'security/ir.model.access.csv',
@@ -20,6 +21,7 @@
         'views/income_tax_rate_view.xml',
         'views/utility_coefficient_view.xml',
         'views/account_account_view.xml',
+        'report/report_isr_xlsx.xml',
         'wizard/compute_isr_wizar.xml',
     ],
     "demo": [

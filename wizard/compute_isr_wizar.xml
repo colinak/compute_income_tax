@@ -13,18 +13,18 @@
             <field name="end_date"/>
           </group>
           <footer>
-              <!--name="get_report"-->
-            <button 
-              string="Calcular" 
-              type="object" 
+            <button
+              name="excel_report_generate"
+              string="Calcular"
+              type="object"
               class="oe_highlight"/>
             <button string="Cancelar" special="cancel"/>
           </footer>
         </form>
       </field>
     </record>
-    
-    
+
+
     <act_window id="compute_isr_report_wizard"
       name="Calculo ISR"
       res_model="compute.isr.wizard"
@@ -33,9 +33,11 @@
 
 
     <menuitem action="compute_isr_report_wizard"
+      name="Calculo ISR"
       id="menu_compute_isr_report_wizard"
-      parent="menu_configuration_report_tax"/>
-    
-    
+      parent="menu_configuration_report_tax"
+      groups="base.group_system,account.group_account_manager,account.group_account_invoice"/>
+
+
   </data>
 </odoo>

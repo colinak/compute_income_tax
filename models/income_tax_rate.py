@@ -16,6 +16,9 @@ class IncomeTaxRate(models.Model):
         if self.start_date != False:
             self.name = "Tasa ISR - {}".format(self.start_date.year)
 
+    @api.multi
+    def generate_excel_report(self):
+        return self.env.ref('compute_income_tax.report_isr_xlsx').report_action(self)
 
     name = fields.Char(
         string="Description",      
@@ -102,4 +105,3 @@ class IncomeTaxRate(models.Model):
                     '¡ERROR!\n'+
                     u'La Fecha Final No Puede ser Mayor a Un Año de Vigencia'
                 )
-
